@@ -23,6 +23,7 @@ function Walker() {
 
   this.update = function() {
     this.acc = createVector(random(-1,1), random(-1,1));
+    this.acc.mult(0.1);
     
     this.vel.add(this.acc);
     this.pos.add(this.vel);
