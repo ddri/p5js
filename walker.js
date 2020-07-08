@@ -18,8 +18,14 @@ function draw() {
 // Create the walker. 
 
 function Walker() {
+  this.pos = createVector(width/2, height/2);
+
+  // The createVector function declares the vector as a component
+  // so the specific variables can be simplified.   
+  /* 
   this.x = width/2;
   this.y = height/2;
+  */
   
   // Create the action for Walker including random functions
   this.walk = function() {
