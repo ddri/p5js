@@ -29,8 +29,14 @@ function Walker() {
   
   // Create the action for Walker including random functions
   this.walk = function() {
-    this.pos.x = this.pos.x + random(-5, 5);
-    this.pos.y = this.pos.y + random(-5, 5);
+
+
+    this.vel = createVector(random(-5, 5), random(-5, 5));
+    this.pos = this.pos.add(this.vel);
+
+    // Replacing this long way of declaring vector position with the add() function
+    // this.pos.x = this.pos.x + random(-5, 5);
+    // this.pos.y = this.pos.y + random(-5, 5);
   }    
   
   // Draw the walker
