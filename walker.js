@@ -29,13 +29,13 @@ function Walker() {
   
   // Create the action for Walker including random functions
   this.walk = function() {
-    this.x = this.x + random(-5, 5);
-    this.y = this.y + random(-5, 5);
+    this.pos.x = this.pos.x + random(-5, 5);
+    this.pos.y = this.pos.y + random(-5, 5);
   }    
   
   // Draw the walker
   this.display = function() {
     fill(255);
-    ellipse(this.x, this.y, 48, 48);
+    ellipse(this.pos.x, this.pos.y, 48, 48);
   }
 }
