@@ -21,16 +21,11 @@ function Walker() {
   this.pos = createVector(width/2, height/2);
   this.vel = createVector(0, 0);
 
-// Create the acceleration for the vector
   this.update = function() {
     this.acc = createVector(random(-1,1), random(-1,1));
-
-  
-  // Create the action for Walker 
-  this.update = function() {
+    
     this.vel.add(this.acc);
     this.pos.add(this.vel);
-
   }    
   
   // Draw the walker
