@@ -7,12 +7,18 @@ function setup() {
 
 function draw() {
   background(51);
+  w.walk();
   w.display();
 }
 
 function Walker() {
   this.x = width/2;
   this.y = height/2;
+  
+  this.walk = function() {
+    this.x = this.x + random(-5, 5);
+    this.y = this.y + random(-5, 5);
+  }    
   
   this.display = function() {
     fill(255);
