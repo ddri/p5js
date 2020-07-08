@@ -18,7 +18,7 @@ function draw() {
 // Create the walker. 
 
 function Walker() {
-  this.pos = createVector(width/2, height/2);
+  this.pos = createVector(width/2, 0);
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0.1)''
 
