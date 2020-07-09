@@ -21,9 +21,14 @@ function Walker() {
   this.pos = createVector(width/2, height/2);
   this.vel = createVector(0, 0);
 
+// Vector subtraction gives the location of mouse minus position.
+// Rather than constantly updating the vectors and mouse movement
+// this updates a new unique vector.
+// Also note the p5 instance is static, rather than called on an
+// object but on p5 itself. 
   this.update = function() {
     var mouse = createVector(mouseX, mouseY);
-    this.acc = mouse - this.pos;
+    this.acc = p5.Vector.sub(mouse, this.pos);
 
     
     this.vel.add(this.acc);
