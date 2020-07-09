@@ -29,6 +29,7 @@ function Walker() {
   this.update = function() {
     var mouse = createVector(mouseX, mouseY);
     this.acc = p5.Vector.sub(mouse, this.pos);
+    this.acc.mul(0.01);
 
     
     this.vel.add(this.acc);
