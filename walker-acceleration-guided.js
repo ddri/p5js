@@ -26,11 +26,15 @@ function Walker() {
 // this updates a new unique vector.
 // Also note the p5 instance is static, rather than called on an
 // object but on p5 itself. 
+
   this.update = function() {
     var mouse = createVector(mouseX, mouseY);
     this.acc = p5.Vector.sub(mouse, this.pos);
-    this.acc.mult(0.01);
-
+    //this.acc.normalize();
+    //this.acc.mult(0.1);
+    // Instead of normalising and then using 
+    // a mult to affect it, use magnitude.
+    this.acc.setMag(0.4);
     
     this.vel.add(this.acc);
     this.pos.add(this.vel);
