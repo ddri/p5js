@@ -12,19 +12,27 @@ function draw() {
 	background(51);
 
     // This variable applies gravity as a force
+    
     var gravity = createVector(0, 0.1);
 
     // This variable applies wind as a force
     // The x value as an example here blows to the right 
+
     var wind = createVector(0.1, 0);
 
 
     particle.applyForce(gravity);
+
+    // The mouseIsPressed condition applies the 
+    // wind force only if the mouse is clicked
+
+    if (mouseIsPressed) {
     particle.applyForce(wind);
-  
-// could use a random to create drift in the fall
-// instead of the set x value
-// var gravity = createVector(random(-1,1),0.1)
+    }
+
+    // could use a random to create drift in the fall
+    // instead of the set x value
+    // var gravity = createVector(random(-1,1),0.1)
 
 	particle.update();
 	particle.edges();
@@ -54,6 +62,7 @@ function Particle() {
         // Sets back to zero to check force accumulation
         // so at any point in time the object can
         // be subject to the forces present at that time
+
 		this.acc.set(0, 0);
 	}
 
@@ -64,6 +73,7 @@ function Particle() {
     // This tells the particle to react to the edges
     // of the canvas, and what it should do when it 
     // hits it. In this case, to reverse the vector.
+
     this.edges = function() {
     	if (this.pos.y > height) {
     		this.vel.y *= -1;
