@@ -10,6 +10,10 @@ function setup() {
     particle2 = new Particle(400, 100, 1);
 }
 
+// This function prints to console, to show the 
+// subtle floating point math errors that cause 
+// the two particles to behave different with 
+// similar gravity and wind calculations
 function mousePressed() {
     console.log(particle1.vel.y + "  " + particle2.vel.y);
 }
