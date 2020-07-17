@@ -51,9 +51,12 @@ function Particle() {
     this.pos = createVector(width / 2, height/2);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
+    this.mass = 5;
 
     this.applyForce = function(force) {
-        this.acc.add(force);
+        var f = force.copy();
+        f.div(this.mass);
+        this.acc.add(f);
     }
 
     this.update = function() {
@@ -69,6 +72,7 @@ function Particle() {
 
     this.display = function() {
         fill(255);
+        stroke(255);
         ellipse(this.pos.x, this.pos.y, 48, 48);
     }
     // This tells the particle to react to the edges
