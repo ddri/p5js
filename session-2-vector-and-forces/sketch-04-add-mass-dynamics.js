@@ -73,7 +73,7 @@ function Particle() {
     this.display = function() {
         fill(255);
         stroke(255);
-        ellipse(this.pos.x, this.pos.y, 48, 48);
+        ellipse(this.pos.x, this.pos.y, this.mass*10, this.mass*10,);
     }
     // This tells the particle to react to the edges
     // of the canvas, and what it should do when it 
