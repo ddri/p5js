@@ -11,6 +11,6 @@ function Particle() {
 
 	this.display = function() {
 		fill(255);
-		ellipse(this.pos.x, this.pos.y 48, 48);
+		ellipse(this.pos.x, this.pos.y, 48, 48);
 	}
 }
