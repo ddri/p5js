@@ -44,7 +44,7 @@ function Particle() {
 	this.acc = createVector(0, 0);
 
 	this.applyForce = function(force) {
-		this.acc = force;
+		this.acc.add(force);
 	}
 
 	this.update = function() {
