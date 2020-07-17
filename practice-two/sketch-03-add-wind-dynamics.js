@@ -12,11 +12,11 @@ function draw() {
 	background(51);
 
     // This variable applies gravity as a force
-    var gravity = createVector(0.3, 0.1);
+    var gravity = createVector(0, 0.1);
 
     // This variable applies wind as a force
     // The x value as an example here blows to the right 
-    var wind = createVector(0.5, 0);
+    var wind = createVector(0.1, 0);
 
 
     particle.applyForce(gravity);
@@ -50,17 +50,30 @@ function Particle() {
 	this.update = function() {
 		this.vel.add(this.acc);
 		this.pos.add(this.vel);
+
+        // Sets back to zero to check force accumulation
+        // so at any point in time the object can
+        // be subject to the forces present at that time
+		this.acc.set(0, 0);
 	}
 
 	this.display = function() {
 		fill(255);
 		ellipse(this.pos.x, this.pos.y, 48, 48);
 	}
-
+    // This tells the particle to react to the edges
+    // of the canvas, and what it should do when it 
+    // hits it. In this case, to reverse the vector.
     this.edges = function() {
     	if (this.pos.y > height) {
     		this.vel.y *= -1;
     		this.pos.y = height;
     	}
+
+    	 if (this.pos.x > width) {
+    		this.vel.x *= -1;
+    		this.pos.x = width;
+    	}
+
     }
 }
