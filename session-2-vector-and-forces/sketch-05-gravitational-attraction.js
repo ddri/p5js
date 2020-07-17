@@ -37,7 +37,8 @@ var Attractor = function() {
     var force = p5.Vector.sub(this.pos, p.pos);
     // Distance between objects
     var distance = force.mag();
-    // Artificial constraint
+    // Artificial constraint - this skews reality of gravity a bit
+    // but it keeps the simulation behaving as we might expect
     distance = constrain(distance, 5, 25);
     // Normalize vector (distance doesn't matter here, we just want this vector for direction)
     force.normalize();
