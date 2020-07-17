@@ -10,6 +10,11 @@ function setup() {
     particle2 = new Particle(400, 100, 1);
 }
 
+function mousePressed() {
+    console.log(particle1.vel.y + "  " + particle2.vel.y);
+}
+
+
 function draw() {
     background(51);
 
