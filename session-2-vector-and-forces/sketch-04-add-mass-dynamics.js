@@ -6,8 +6,8 @@ var particle2;
 
 function setup() {
     createCanvas(640, 360);
-    particle1 = new Particle(200, 100);
-    particle2 = new Particle(400, 100);
+    particle1 = new Particle(200, 100, 3);
+    particle2 = new Particle(400, 100, 1);
 }
 
 function draw() {
@@ -19,7 +19,6 @@ function draw() {
 
     var gravity1 = createVector(0, 0.2*particle1.mass); 
     particle1.applyForce(gravity1);    
-
     var gravity2 = createVector(0, 0.2*particle2.mass); 
     particle2.applyForce(gravity2);
 
@@ -47,11 +46,11 @@ function draw() {
 
 // Second section is the particle physics
 
-function Particle() {
-    this.pos = createVector(width / 2, height/2);
+function Particle(x, y, m) {
+    this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.mass = 5;
+    this.mass = m;
 
     this.applyForce = function(force) {
         var f = force.copy();
